@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="2.5" xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
+
+    <!-- context-param -->
+
+    <context-param>
+        <param-name>smart.web.layout.PREFIX</param-name>
+        <param-value>/WEB-INF/views/</param-value>
+    </context-param>
+
+    <context-param>
+        <param-name>smart.web.layout.SUFFIX</param-name>
+        <param-value>.jsp</param-value>
+    </context-param>
+
+    <!-- servlet -->
+
+    <servlet>
+        <servlet-name>IndexServlet</servlet-name>
+        <servlet-class>smart.sample.servlet.IndexServlet</servlet-class>
+        <load-on-startup>1</load-on-startup>
+    </servlet>
+
+    <!-- servlet-mapping -->
+
+    <servlet-mapping>
+        <servlet-name>IndexServlet</servlet-name>
+        <url-pattern>/</url-pattern>
+    </servlet-mapping>
+
+    <!-- jsp-config -->
+
+    <jsp-config>
+
+        <taglib>
+            <taglib-uri>/tags/layout</taglib-uri>
+            <taglib-location>/WEB-INF/tld/layout.tld</taglib-location>
+        </taglib>
+
+        <jsp-property-group>
+            <url-pattern>*.jsp</url-pattern>
+            <el-ignored>false</el-ignored>
+            <page-encoding>UTF-8</page-encoding>
+            <scripting-invalid>false</scripting-invalid>
+            <include-prelude>/WEB-INF/views/common.jsp</include-prelude>
+        </jsp-property-group>
+
+    </jsp-config>
+
+</web-app>
